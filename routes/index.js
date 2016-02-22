@@ -43,5 +43,12 @@ router.get('/check', function(req, res, next) {
   currendCheck.save();
   res.send('done');
 });
+router.get('/remove', function(req, res, next) {
+  var id = req.query.id;
+  Checkin.find({
+    _id: id
+  }).remove().exec();
+  res.send("done.");
+});
 
 module.exports = router;
